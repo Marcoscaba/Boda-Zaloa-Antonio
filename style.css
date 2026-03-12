@@ -174,14 +174,6 @@ h3 {
     z-index: 0;
 }
 
-@keyframes countdownSlideshow {
-
-    0%,
-    48% {
-        background-image: url('images/2.jpg');
-    }
-}
-
 .countdown-section .overlay {
     z-index: 1;
 }
@@ -686,9 +678,6 @@ h3 {
 
 /* RSVP Section */
 .btn-rsvp {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
     background-color: #8E7B5C;
     color: #ffffff;
     border: none;
