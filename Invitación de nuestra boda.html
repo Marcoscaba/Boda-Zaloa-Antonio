@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Invitación exclusiva a la boda de Ana & Carlos el 12 de diciembre de 2026 en Doña Francisquita Catering. ¡Te esperamos!">
+    <title>Nuestra Boda | ZALOA & ANTONIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --beige-light: #FDFBF7;
+            --beige-medium: #F5F0E6;
+            --beige-dark: #E8E0D1;
+            --gold: #C5A059;
+            --text-color: #5C544B;
+            --heading-font: 'Cinzel', serif;
+            --body-font: 'Montserrat', sans-serif;
+            --accent-font: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--beige-light);
+            color: var(--text-color);
+            font-family: var(--body-font);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .scroll-container {
+            height: 100vh;
+            height: 100dvh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            /* Momentum scroll for iOS */
+        }
+
+        .section {
+            min-height: 100vh;
+            min-height: 100dvh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Gradients for depth */
+        .section:nth-child(odd) {
+            background: linear-gradient(to bottom, var(--beige-light), var(--beige-medium));
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(to bottom, var(--beige-medium), var(--beige-dark));
+        }
+
+        /* Typography */
+        h1 {
+            font-family: var(--heading-font);
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            letter-spacing: 6px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            font-family: var(--heading-font);
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: #000;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
+        }
+
+        .location-section h2,
+        .gift-section h2,
+        .rsvp h2 {
+            color: #D4AF37;
+            /* Dorado vibrante y elegante */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            /* Sombra negra para contraste */
+        }
+
+
+        h3 {
+            font-family: var(--heading-font);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .subtitle {
+            font-family: var(--heading-font);
+            letter-spacing: 5px;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+            color: #000;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
+        }
+
+        .date {
+            font-family: var(--heading-font);
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            color: #000;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Hero Section Specifics */
+        .hero {
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(208, 196, 173, 0.4);
+            /* Overlay ligero para legibilidad */
+        }
+
+        .hero .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.8rem;
+            animation: bounce 2s infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            position: relative;
+        }
+
+        .countdown-bg-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: countdownSlideshow 15s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        @keyframes countdownSlideshow {
+
+            0%,
+            48% {
+                background-image: url('C:/Users/marco/.gemini/antigravity/brain/3d8c6b2d-5789-4830-9285-376bedd4616d/media__1772747687035.jpg');
+            }
+
+            52%,
+            100% {
+                background-image: url('C:/Users/marco/.gemini/antigravity/brain/3d8c6b2d-5789-4830-9285-376bedd4616d/media__1772747687177.png');
+            }
+        }
+
+        .countdown-section .overlay {
+            z-index: 1;
+        }
+
+        .countdown-section .content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        /* .countdown-main-title removed as h2 now handles this style */
+
+        .section-subtitle {
+            font-family: var(--accent-font);
+            font-size: 1.5rem;
+            font-style: italic;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #000;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
+        }
+
+        .countdown-container.large {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: white;
+            border: 2px solid var(--gold);
+            padding: 2rem 1.5rem;
+            min-width: 120px;
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            font-family: var(--heading-font);
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .countdown-box span {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .countdown-box label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            color: var(--text-color);
+        }
+
+        /* Location Section Redesign */
+        .location-container {
+            display: flex;
+            gap: 2rem;
+            align-items: stretch;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .location-info-card {
+            flex: 1;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid var(--beige-dark);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .location-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-decoration {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-top: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+            opacity: 0.3;
+        }
+
+        .location-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-header .icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .location-header h3 {
+            margin-bottom: 0;
+            font-family: var(--accent-font);
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--text-color);
+        }
+
+        .location-details .venue-name {
+            font-family: var(--heading-font);
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .location-details .venue-address {
+            font-size: 1rem;
+            color: #8E8479;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--beige-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--beige-medium);
+        }
+
+        .btn-location {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--text-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1.2rem 2rem;
+            border-radius: 12px;
+            font-family: var(--heading-font);
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .btn-location:hover {
+            background: var(--gold);
+            transform: scale(1.02);
+        }
+
+        .btn-icon {
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-location:hover .btn-icon {
+            transform: translateX(5px);
+        }
+
+        .map-wrapper {
+            flex: 1.2;
+            min-height: 400px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 8px solid #ffffff;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 900px) {
+            .location-container {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+
+            .map-wrapper {
+                min-height: 300px;
+            }
+        }
+
+        /* Gift Section - PREMIUM (Style based on 1.png) */
+        .gift-interactive-area {
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .gift-box-wrapper.premium {
+            width: 160px;
+            height: 160px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10;
+        }
+
+        .gift-container-premium {
+            width: 100%;
+            height: 100%;
+            background: #E1F1FF;
+            /* Azul suave pastel */
+            position: absolute;
+            bottom: 0;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .gift-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #D4AF37 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .gift-lid-premium {
+            width: 110%;
+            height: 40px;
+            background: #e7c34d;
+            /* Rosa suave pastel */
+            position: absolute;
+            top: -5px;
+            left: -5%;
+            z-index: 20;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .gift-ribbon-premium {
+            position: absolute;
+            width: 40px;
+            height: 100%;
+            background: #e7c34d;
+            /* Rosa lazo */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Bow styling */
+        .gift-bow {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 40px;
+            z-index: 30;
+        }
+
+        .bow-left,
+        .bow-right {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background: #dc8a17;
+            border-radius: 50%;
+            top: 5px;
+        }
+
+        .bow-left {
+            left: 0;
+            transform: rotate(-20deg);
+        }
+
+        .bow-right {
+            right: 0;
+            transform: rotate(20deg);
+        }
+
+        .bow-center {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #0000;
+            border-radius: 50%;
+            left: 50%;
+            top: 12px;
+            transform: translateX(-50%);
+            z-index: 31;
+        }
+
+        /* Interaction Effects */
+        .gift-box-wrapper.premium:hover {
+            transform: scale(1.1) rotate(3deg);
+        }
+
+        .gift-box-wrapper.exploding {
+            animation: explodePremium 0.7s forwards cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes explodePremium {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            30% {
+                transform: scale(1.3) rotate(-5deg);
+            }
+
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        .gift-reveal-content {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            z-index: 5;
+            animation: fadeInReveal 0.8s forwards ease-out;
+        }
+
+        @keyframes fadeInReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .iban-link {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            color: var(--gold);
+            text-decoration: none;
+            border: 2px solid var(--gold);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: white;
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .iban-link:hover {
+            background: var(--gold);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .iban-display {
+            margin-top: 2rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+            background: #FFF;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: none;
+            border: 2px solid var(--beige-dark);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+            letter-spacing: 2px;
+            white-space: pre-wrap;
+            /* Preserva los espacios del IBAN */
+        }
+
+        /* Heart Particles */
+        .heart {
+            position: absolute;
+            font-size: 28px;
+            user-select: none;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeartOut {
+            0% {
+                transform: translate(0, 0) scale(0.5) rotate(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(var(--scale)) rotate(var(--rot));
+                opacity: 0;
+            }
+        }
+
+        /* RSVP Section */
+        .btn-rsvp {
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 1rem 2rem;
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-rsvp:hover {
+            background-color: var(--gold);
+            color: white;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 1;
+            /* Fallback for no-js or observer delay */
+            transform: translateY(0);
+            transition: all 1s ease-out;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 4px;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+                letter-spacing: 3px;
+            }
+
+            .subtitle {
+                font-size: 1.8rem;
+                letter-spacing: 3px;
+            }
+
+            .date {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+
+            .countdown-container.large {
+                gap: 1rem;
+            }
+
+            .countdown-box {
+                min-width: 90px;
+                padding: 1.5rem 1rem;
+            }
+
+            .countdown-box span {
+                font-size: 2rem;
+            }
+
+            .location-info-card {
+                padding: 2rem;
+            }
+
+            .location-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .location-details .venue-name {
+                font-size: 1.4rem;
+            }
+
+            .iban-link {
+                font-size: 1.3rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .iban-display {
+                font-size: 1.1rem;
+                padding: 1rem;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+                letter-spacing: 2px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+
+            .date {
+                font-size: 1.5rem;
+            }
+
+            .countdown-container.large {
+                gap: 0.5rem;
+            }
+
+            .countdown-box {
+                min-width: 70px;
+                padding: 1rem 0.5rem;
+            }
+
+            .countdown-box span {
+                font-size: 1.5rem;
+            }
+
+            .countdown-box label {
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+            }
+
+            .gift-box-wrapper.premium {
+                width: 130px;
+                height: 130px;
+            }
+
+            .gift-lid-premium {
+                height: 35px;
+            }
+
+            .gift-bow {
+                width: 60px;
+                height: 30px;
+                top: -20px;
+            }
+
+            .bow-left,
+            .bow-right {
+                width: 30px;
+                height: 25px;
+            }
+
+            .location-details .venue-address {
+                font-size: 0.9rem;
+            }
+
+            .time-badge {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .btn-location {
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .countdown-box {
+                min-width: 65px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-container">
+        <!-- Section 1: Hero con Imagen de Finca -->
+        <section class="section hero" id="home"
+            style="background-image: url('C:/Users/marco/.gemini/antigravity/brain/3d8c6b2d-5789-4830-9285-376bedd4616d/wedding_finca_hero_1772723473934.png'); background-size: cover; background-position: center;">
+            <div class="overlay"></div>
+            <div class="content fade-in">
+                <span class="subtitle">¡Nos Casamos!</span>
+                <h1>ZALOA & ANTONIO</h1>
+                <p class="date">12 . 12 . 2026</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Cuenta Atrás -->
+        <section class="section countdown-section" id="countdown">
+            <div class="countdown-bg-slider"></div>
+            <div class="overlay"></div>
+            <div class="content reveal">
+                <h2 class="countdown-main-title">Cuenta atrás</h2>
+                <p class="section-subtitle">Para el día más especial de nuestras vidas</p>
+                <div class="countdown-container large">
+                    <div class="countdown-box">
+                        <span id="days">00</span>
+                        <label>Días</label>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="hours">00</span>
+                        <label>Horas</label>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="minutes">00</span>
+                        <label>Minutos</label>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="seconds">00</span>
+                        <label>Segundos</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Ubicación y Hora Unificado -->
+        <section class="section location-section" id="location">
+            <div class="content reveal">
+                <h2>¿Dónde y Cuándo?</h2>
+                <div class="location-container">
+                    <div class="location-info-card">
+                        <div class="card-decoration"></div>
+                        <div class="location-header">
+                            <span class="icon">✨</span>
+                            <h3>Ceremonia y Banquete</h3>
+                        </div>
+                        <div class="location-details">
+                            <p class="venue-name">Finca la Tosca</p>
+                            <p class="venue-address">Cam. Retiro, 2, Churriana, 29140 Málaga</p>
+                            <div class="time-badge">
+                                <span class="time-icon">🕒</span>
+                                <span>13:00 - ??? (Tardeo)</span>
+                            </div>
+                        </div>
+                        <a href="https://www.google.com/maps/place/Finca+la+Tosca+by+Do%C3%B1a+Francisquita+Catering/@36.6690931,-4.5057831,208m/data=!3m1!1e3!4m6!3m5!1s0xd72fa441da0c811:0x98508a2f35a46649!8m2!3d36.669154!4d-4.5057016!16s%2Fg%2F11f2ckz7c2?hl=es&entry=ttu"
+                            target="_blank" class="btn-location">
+                            <span>Cómo llegar</span>
+                            <span class="btn-icon">→</span>
+                        </a>
+                    </div>
+                    <div class="map-wrapper">
+                        <div class="map-frame">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d400.1011832047!2d-4.5057831!3d36.6690931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72fa441da0c811%3A0x98508a2f35a46649!2sFinca%20la%20Tosca%20by%20Do%C3%B1a%20Francisquita%20Catering!5e1!3m2!1ses!2ses!4v1772746981248!5m2!1ses!2ses"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Regalo Interactivo -->
+        <section class="section gift-section" id="gift">
+            <div class="heart-canvas" id="heart-container"></div>
+            <div class="content reveal">
+                <h2>Nuestro Regalo</h2>
+                <p class="section-subtitle">Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con
+                    nosotros:</p>
+                <div class="gift-interactive-area">
+                    <div class="gift-box-wrapper premium" id="gift-box">
+                        <div class="gift-dots"></div>
+                        <div class="gift-lid-premium">
+                            <div class="gift-bow">
+                                <div class="bow-left"></div>
+                                <div class="bow-right"></div>
+                                <div class="bow-center"></div>
+                            </div>
+                        </div>
+                        <div class="gift-container-premium"></div>
+                        <div class="gift-ribbon-premium"></div>
+                    </div>
+                    <div class="gift-reveal-content" id="gift-reveal">
+                        <a href="#" id="iban-link" class="iban-link">Click aquí para ver el IBAN</a>
+                        <div id="iban-display" class="iban-display"></div>
+                    </div>
+                </div>
+                <p class="click-hint" id="gift-hint">¡Toca el regalo para abrirlo!</p>
+            </div>
+        </section>
+
+        <!-- Section 5: RSVP -->
+        <section class="section rsvp" id="rsvp">
+            <div class="content reveal">
+                <h2>Confirma tu asistencia</h2>
+                <p class="section-subtitle">Por favor, confírmanos antes del 1 de Noviembre.</p>
+                <button class="btn-rsvp">Confirmar Ahora</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Scroll Animations
+            const observerOptions = {
+                threshold: 0.1, // Lower threshold for mobile
+                rootMargin: "0px 0px -50px 0px" // Trigger slightly before entering
+            };
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        }
+                    });
+                }, observerOptions);
+
+                const revealElements = document.querySelectorAll('.reveal');
+                revealElements.forEach(el => observer.observe(el));
+            } else {
+                // Fallback for older browsers
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+            }
+
+            // 2. Countdown Timer
+            const weddingDate = new Date("December 12, 2026 18:30:00").getTime();
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.querySelector(".countdown-container").innerHTML = "<span>¡Hoy es el gran día!</span>";
+                }
+            };
+
+            updateCountdown();
+            const countdownInterval = setInterval(updateCountdown, 1000);
+
+            // 3. Premium Gift Box interaction & Hearts
+            const giftBox = document.getElementById('gift-box');
+            const giftReveal = document.getElementById('gift-reveal');
+            const giftHint = document.getElementById('gift-hint');
+            const ibanLink = document.getElementById('iban-link');
+            const ibanDisplay = document.getElementById('iban-display');
+
+            if (giftBox) {
+                giftBox.addEventListener('click', () => {
+                    // Animación de explosión/desaparición
+                    giftBox.classList.add('exploding');
+                    if (giftHint) giftHint.style.opacity = '0';
+
+                    // Obtener posición del centro de la caja para los corazones
+                    const rect = giftBox.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+
+                    createHearts(centerX, centerY);
+
+                    // Mostrar el link después de la animación de la caja
+                    setTimeout(() => {
+                        giftBox.style.display = 'none';
+                        if (giftHint) giftHint.style.display = 'none';
+                        giftReveal.style.display = 'flex';
+                    }, 650);
+                });
+            }
+
+            if (ibanLink) {
+                ibanLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    ibanLink.style.display = 'none';
+                    ibanDisplay.style.display = 'block';
+
+                    // Simular escritura del IBAN
+                    const fullIban = "ES86 2080 5490 6730 4018 7777";
+                    let i = 0;
+                    ibanDisplay.innerText = "";
+                    const typeWriter = () => {
+                        if (i < fullIban.length) {
+                            ibanDisplay.innerText += fullIban.charAt(i);
+                            i++;
+                            setTimeout(typeWriter, 60);
+                        }
+                    };
+                    typeWriter();
+                });
+            }
+
+            function createHearts(originX, originY) {
+                const colors = ['#FF69B4', '#FF0000', '#FFC0CB', '#FFFFFF'];
+                const heartIcons = ['❤️', '💖', '💝', '💕', '🤍'];
+
+                for (let i = 0; i < 60; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+
+                    // Parámetros aleatorios para la explosión radial
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 350 + 150;
+                    const tx = Math.cos(angle) * distance + 'px';
+                    const ty = Math.sin(angle) * distance + 'px';
+                    const scale = Math.random() * 1.5 + 0.8;
+                    const rot = (Math.random() * 720 - 360) + 'deg';
+
+                    // Posicionamiento absoluto respecto al viewport
+                    heart.style.position = 'fixed';
+                    heart.style.left = originX + 'px';
+                    heart.style.top = originY + 'px';
+                    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    heart.style.setProperty('--tx', tx);
+                    heart.style.setProperty('--ty', ty);
+                    heart.style.setProperty('--scale', scale);
+                    heart.style.setProperty('--rot', rot);
+
+                    heart.style.animation = `floatHeartOut ${Math.random() * 1.5 + 1}s forwards cubic-bezier(0.12, 0, 0.39, 0)`;
+
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 2500);
+                }
+            }
+
+            // 4. RSVP Interaction
+            const rsvpBtn = document.querySelector('.btn-rsvp');
+            if (rsvpBtn) {
+                rsvpBtn.addEventListener('click', () => {
+                    alert('¡Gracias por confirmar! Te redirigiremos al formulario de confirmación.');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
