@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rsvpBtn = document.querySelector('.btn-rsvp');
     if (rsvpBtn) {
         rsvpBtn.addEventListener('click', () => {
-            alert('¡Gracias por confirmar! Te redirigiremos al formulario de confirmación.');
+            window.open('https://withjoy.com/marcos-caballerosanchez-and-marcos2/rsvp', '_blank');
         });
     }
 });
