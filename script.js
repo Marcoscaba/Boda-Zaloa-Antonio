@@ -1,19 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Scroll Animations
     const observerOptions = {
-        threshold: 0.1, // Lower threshold for mobile
-        rootMargin: "0px 0px -50px 0px" // Trigger slightly before entering
+        threshold: 0.1,
+        rootMargin: "50px 0px 50px 0px"
     };
+
+    // CSS scroll snapping removed for a smoother, natural scroll experience.
 
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                    // Activar todos los elementos reveal dentro de la sección
+                    if (entry.target.classList.contains('section')) {
+                        const reveals = entry.target.querySelectorAll('.reveal');
+                        reveals.forEach(el => el.classList.add('active'));
+                    }
                 }
             });
         }, observerOptions);
 
+        // Observar las secciones para disparar todos los reveal a la vez
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(el => observer.observe(el));
+        
+        // Mantener la observación individual de los reveals
         const revealElements = document.querySelectorAll('.reveal');
         revealElements.forEach(el => observer.observe(el));
     } else {
@@ -82,15 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
             ibanLink.style.display = 'none';
             ibanDisplay.style.display = 'block';
 
-            // Simular escritura del IBAN
-            const fullIban = "ES86 2080 5490 6730 4018 7777";
+            // Simular escritura de los datos
+            const fullInfo = "Bizum: 613 07 07 80\nIBAN: ES86 2080 5490 6730 4018 7777";
             let i = 0;
             ibanDisplay.innerText = "";
             const typeWriter = () => {
-                if (i < fullIban.length) {
-                    ibanDisplay.innerText += fullIban.charAt(i);
+                if (i < fullInfo.length) {
+                    ibanDisplay.innerText += fullInfo.charAt(i);
                     i++;
-                    setTimeout(typeWriter, 60);
+                    setTimeout(typeWriter, 50); // Slightly faster for more text
                 }
             };
             typeWriter();
@@ -139,4 +151,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
