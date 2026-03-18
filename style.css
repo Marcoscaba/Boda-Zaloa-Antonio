@@ -27,10 +27,9 @@ body {
     height: 100vh;
     height: 100dvh;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    /* Momentum scroll for iOS */
+    scroll-padding-top: 0;
 }
 
 .section {
@@ -43,9 +42,10 @@ body {
     align-items: center;
     text-align: center;
     padding: 2rem;
-    scroll-snap-align: start;
     position: relative;
     overflow: hidden;
+    background-attachment: fixed;
+    /* Parallax effect */
 }
 
 /* Background Gradients for depth */
@@ -62,24 +62,21 @@ h1 {
     font-family: var(--heading-font);
     font-size: 5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color: #ffffff;
     letter-spacing: 6px;
     text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8), 2px 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
-    font-family: var(--heading-font);
-    font-size: 3rem;
+    font-family: 'Cormorant', serif;
+    font-size: 3.5rem;
     font-weight: 700;
     letter-spacing: 5px;
     color: #000;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 10px rgba(255, 255, 255, 1);
 }
-
-
-
 
 h3 {
     font-family: var(--heading-font);
@@ -91,8 +88,19 @@ h3 {
 .subtitle {
     font-family: var(--heading-font);
     letter-spacing: 5px;
-    font-size: 3rem;
+    font-size: 2.3rem;
     font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+    color: #000;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 1);
+}
+
+.subtitle1 {
+    font-family: var(--heading-font);
+    letter-spacing: 5px;
+    font-size: 2rem;
+    font-weight: 600;
     margin-bottom: 1rem;
     display: block;
     color: #000;
@@ -156,6 +164,116 @@ h3 {
     }
 }
 
+/* History Section - Beautiful Card Layout */
+.history-section .content {
+    max-width: 800px;
+    width: 100%;
+}
+
+.history-card {
+    background: rgba(253, 251, 247, 0.85);
+    /* var(--beige-light) con opacidad */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 3.5rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(197, 160, 89, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+    /* Asegura que tome el ancho necesario */
+}
+
+.history-card::before,
+.history-card::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--gold);
+    opacity: 0.4;
+    transition: all 0.5s ease;
+}
+
+.history-card::before {
+    top: 20px;
+    left: 20px;
+    border-bottom: none;
+    border-right: none;
+}
+
+.history-card::after {
+    bottom: 20px;
+    right: 20px;
+    border-top: none;
+    border-left: none;
+}
+
+.history-card:hover::before {
+    top: 15px;
+    left: 15px;
+    opacity: 0.8;
+}
+
+.history-card:hover::after {
+    bottom: 15px;
+    right: 15px;
+    opacity: 0.8;
+}
+
+.history-card .section-subtitle,
+.history-card .section-subtitle1 {
+    text-shadow: none;
+    /* Quitamos la sombra para un aspecto más limpio sobre beige */
+}
+
+.history-card .section-subtitle {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.history-card .section-subtitle1 {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.history-divider {
+    width: 90px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 2rem auto;
+    opacity: 0.7;
+}
+
+.history-card .section-subtitle1:last-child {
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: var(--gold);
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .history-card {
+        padding: 2.5rem 1.5rem;
+        background: rgba(253, 251, 247, 0.92);
+        /* Más opaco en móvil */
+    }
+
+    .history-card .section-subtitle {
+        font-size: 1.6rem;
+        margin-bottom: 0;
+    }
+
+    .history-card .section-subtitle1 {
+        font-size: 1.35rem;
+    }
+}
+
 /* Countdown Section */
 .countdown-section {
     position: relative;
@@ -188,12 +306,30 @@ h3 {
 
 .section-subtitle {
     font-family: var(--accent-font);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-style: italic;
     font-weight: 700;
     margin-bottom: 3rem;
     color: #000;
     text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
+}
+
+.section-subtitle1 {
+    font-family: var(--accent-font);
+    font-size: 1.7rem;
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: #000;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.9);
+}
+
+.subtitle-tight {
+    margin-bottom: 0.5rem;
+}
+
+.subtitle-small-top {
+    margin-bottom: 1rem;
 }
 
 .countdown-container.large {
@@ -321,6 +457,47 @@ h3 {
     color: var(--text-color);
     margin-bottom: 2.5rem;
     border: 1px solid var(--beige-medium);
+}
+
+.info-rectangles {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.info-box {
+    flex: 1;
+    background: var(--beige-light);
+    border: 1px solid var(--gold);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2);
+}
+
+.info-label {
+    font-family: var(--heading-font);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.info-value {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
 }
 
 .btn-location {
@@ -607,6 +784,21 @@ h3 {
     animation: fadeInReveal 0.8s forwards ease-out;
 }
 
+/* Hint text below the gift */
+.click-hint {
+    font-family: var(--body-font);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    animation: bounce 2s infinite;
+}
+
 @keyframes fadeInReveal {
     from {
         opacity: 0;
@@ -641,7 +833,7 @@ h3 {
 .iban-display {
     margin-top: 2rem;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--text-color);
     background: #FFF;
@@ -733,12 +925,65 @@ h3 {
 @media (prefers-reduced-motion: no-preference) {
     .reveal {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px) scale(0.98);
+        transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .reveal.active {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Delay Utils for staggered animation */
+.delay-1 {
+    transition-delay: 0.2s !important;
+}
+
+.delay-2 {
+    transition-delay: 0.4s !important;
+}
+
+.delay-3 {
+    transition-delay: 0.6s !important;
+}
+
+.delay-4 {
+    transition-delay: 0.8s !important;
+}
+
+.delay-5 {
+    transition-delay: 1.0s !important;
+}
+
+.delay-6 {
+    transition-delay: 1.2s !important;
+}
+
+.delay-7 {
+    transition-delay: 1.4s !important;
+}
+
+/* Pulse animation for countdown */
+.pulse-soft {
+    animation: nervousHeartbeat 0.9s infinite ease-in-out;
+}
+
+@keyframes nervousHeartbeat {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1);
+    }
+
+    40% {
+        transform: scale(1.02);
+        box-shadow: 0 12px 32px rgba(197, 160, 89, 0.15);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1);
     }
 }
 
